@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="cow.css">
+</head>
+<body>
+  <h1 id="username">To-Do List</h1>
+  <style>
+    #tasks-list li::before {
+      content: "•"; 
+      color: rgb(20, 63, 156); 
+      margin-right: 8px; 
+    }
+  </style>
+  <div id="todo-list">
+    <ul id="tasks-list"></ul>
+      <!-- The to do items will be here -->
+    </ul>
+    <input type="text" id="new-task" placeholder="Enter a new task (Max 30 characters...)">
+     <button id="add-to-bottom-btn">Add to Bottom</button>
+     <button id="delete-task-btn">Delete Top</button>
+  </div>
+  <a id="logout-btn" href="/logout">Log Out</a>
+  <script src="todolist.js"></script>
+</body>
+<script src="common.js"></script>
+</html>

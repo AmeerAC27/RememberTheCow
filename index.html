@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="cow.css">
+  <script src="logout.js"></script>
+  <title>Login Page</title>
+</head>
+<body>
+<div class="move-right">
+  <h3 style="color: rgb(0, 96, 191);">The best way to manage your tasks. <br>Never forget the cow (or anything else) again! <br> <br> Log in now to manage your to-do list:</h3>
+  <form id="loginForm" action="/login" method="post">
+    <input type="text" id="username" name="username" placeholder="..." required>
+    <label for="username" style="color: rgb(0, 96, 191);"> <b> User Name:</b></label>
+    <br>
+    <input type="password" id="password" name="password" placeholder="..." required>
+    <label for="password" style="color: rgb(0, 96, 191);"><b>Password :</b></label>
+    <br>
+    <button type="submit" style="color: rgb(0, 96, 191);"><b>Login</b></button>
+  </form>
+  <p id="error-message" style="color: red; display: none;"></p>
+</div>
+</body>
+<script src="common.js"></script>
+<script>
+  
+  const urlParams = new URLSearchParams(window.location.search);
+  const errorMessage = urlParams.get('errorMessage');
+  const errorMessageElement = document.getElementById('error-message');
+
+
+  if (errorMessage) {
+    errorMessageElement.textContent = errorMessage;
+    errorMessageElement.style.display = 'block';
+  }
+</script>
+</html>
