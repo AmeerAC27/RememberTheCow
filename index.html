@@ -2,33 +2,46 @@
 <!-- Authors: Ameer assy , sleman shaaban , eid habib allah -->
 <html>
 <head>
+  <!-- השורה הבאה מתייחסת לקובץ CSS המצוי באותו המיקום כמו קובץ זה -->
   <link rel="stylesheet" href="cow.css">
+  <!-- השורה הבאה מתייחסת לקובץ JavaScript המצוי באותו המיקום כמו קובץ זה -->
   <script src="logout.js"></script>
   <title>Login Page</title>
 </head>
 <body>
 <div class="move-right">
+  <!-- השורה הבאה מציגה כותרת עיקרית בגוף הדף -->
   <h3 style="color: rgb(0, 96, 191);">The best way to manage your tasks. <br>Never forget the cow (or anything else) again! <br> <br> Log in now to manage your to-do list:</h3>
+  <!-- השורה הבאה היא טופס להזנת שם משתמש וסיסמה -->
   <form id="loginForm" action="/login" method="post">
+    <!-- השורה הבאה היא שדה קלט להזנת שם משתמש -->
     <input type="text" id="username" name="username" placeholder="..." required>
+    <!-- השורה הבאה מציגה תווית לשדה שם משתמש -->
     <label for="username" style="color: rgb(0, 96, 191);"> <b> User Name:</b></label>
     <br>
+    <!-- השורה הבאה היא שדה קלט להזנת סיסמה -->
     <input type="password" id="password" name="password" placeholder="..." required>
+    <!-- השורה הבאה מציגה תווית לשדה סיסמה -->
     <label for="password" style="color: rgb(0, 96, 191);"><b>Password :</b></label>
     <br>
+    <!-- השורה הבאה היא לחצן לשליחת הטופס -->
     <button type="submit" style="color: rgb(0, 96, 191);"><b>Login</b></button>
   </form>
+  <!-- השורה הבאה מציגה הודעת שגיאה שתהיה מוסתרת בתחילה -->
   <p id="error-message" style="color: red; display: none;"></p>
 </div>
 </body>
+<!-- השורה הבאה מתייחסת לקובץ JavaScript נוסף הנמצא באותו המיקום כמו קובץ זה -->
 <script src="common.js"></script>
 <script>
-  
+  // השורה הבאה יוצרת אובייקט URLSearchParams מפרמטרי ה-URL הנוכחי
   const urlParams = new URLSearchParams(window.location.search);
+  // השורה הבאה משיגה את הודעת השגיאה מהפרמטרים ב-URL
   const errorMessage = urlParams.get('errorMessage');
+  // השורה הבאה משיגה את האלמנט בדף שיש לו זיהוי 'error-message'
   const errorMessageElement = document.getElementById('error-message');
 
-
+  // אם קיימת הודעת שגיאה, השורה הבאה מציגה אותה באלמנט המתאים
   if (errorMessage) {
     errorMessageElement.textContent = errorMessage;
     errorMessageElement.style.display = 'block';

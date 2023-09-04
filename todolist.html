@@ -2,28 +2,39 @@
 <!-- Authors: Ameer assy , sleman shaaban , eid habib allah -->
 <html>
 <head>
+  <!-- השורה הבאה מגדירה את כותרת הדף -->
   <title>To-Do List</title>
+  <!-- השורה הבאה מגדירה קישור לקובץ CSS בשם 'cow.css' -->
   <link rel="stylesheet" href="cow.css">
 </head>
 <body>
+  <!-- השורה הבאה מציגה כותרת ראשית עבור הדף -->
   <h1 id="username">To-Do List</h1>
+  <!-- השורה הבאה מגדירה סגנון CSS באופן ישיר לרשימת המשימות ('#tasks-list') -->
   <style>
     #tasks-list li::before {
-      content: "•"; 
-      color: rgb(20, 63, 156); 
-      margin-right: 8px; 
+      content: "•"; /* הסימן שיש לפני כל פריט ברשימה */
+      color: rgb(20, 63, 156); /* צבע הסימן */
+      margin-right: 8px; /* הרווח בין הסימן לתוכן הפריט */
     }
   </style>
+  <!-- השורה הבאה מכילה את תוכן רשימת המשימות שתוצג בדף -->
   <div id="todo-list">
     <ul id="tasks-list"></ul>
       <!-- The to do items will be here -->
     </ul>
+    <!-- השורה הבאה מגדירה שדה טקסט להזנת משימה חדשה עם הוראות נוספות -->
     <input type="text" id="new-task" placeholder="Enter a new task (Max 30 characters...)">
+     <!-- השורה הבאה מגדירה לחצן להוספת משימה לרשימה מלמעלה -->
      <button id="add-to-bottom-btn">Add to Bottom</button>
+     <!-- השורה הבאה מגדירה לחצן למחיקת המשימה הראשונה מהרשימה -->
      <button id="delete-task-btn">Delete Top</button>
   </div>
+  <!-- השורה הבאה מגדירה קישור ליציאה מהמערכת ('Log Out') -->
   <a id="logout-btn" href="/logout">Log Out</a>
+  <!-- השורה הבאה מגדירה את קישור ה-JavaScript לתוך הדף -->
   <script src="todolist.js"></script>
 </body>
+<!-- השורה הבאה מגדירה קישור לקובץ JavaScript נוסף בשם 'common.js' -->
 <script src="common.js"></script>
 </html>
