@@ -46,3 +46,39 @@ app.get('/todolist', (req, res) => {
     res.redirect('/');
   }
 });
+// השתמש ב-bodyParser לקריאת נתוני POST ו-JSON
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// שם המשתמש והסיסמה הנכונים
+const correctUsername = "user123";
+const correctPassword = "12345";
+
+// מסלול להתחברות
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({ message: "Username and password are required." });
+  }
+
+  if (username === correctUsername && password === correctPassword) {
+    // הצבת שם המשתמש ב-session
+    req.session.user = username;
+    return res.redirect("/todolist");
+  } else {
+    return res.render("index", { error: "Incorrect username or password. Please try again." });
+  }
+});
+
+// מסלול להתנתקות
+app.get("/logout", (req, res) => {
+  // השמדת ה-session
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Error while logging out:", err);
+      return res.status(500).json({ message: "Error while logging out." });
+    }
+    return res.redirect("/");
+  });
+});
