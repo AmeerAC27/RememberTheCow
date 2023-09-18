@@ -82,3 +82,28 @@ app.get("/logout", (req, res) => {
     return res.redirect("/");
   });
 });
+
+
+// מסלול לשמירת נתוני הרשימה
+app.post("/webservice", (req, res) => {
+  const { items } = req.body;
+  if (!items || !Array.isArray(items)) {
+    return res.status(400).json({ message: "Invalid request. 'items' field must be an array." });
+  }
+
+  saveToDoListData({ items });
+
+  return res.status(200).json({ message: "To-do list data saved successfully!" });
+});
+
+// מסלול לקבלת נתוני הרשימה
+app.get("/webservice", (req, res) => {
+  const toDoListData = readToDoListData();
+
+  return res.status(200).json(toDoListData);
+});
+
+// התחלת השרת
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
